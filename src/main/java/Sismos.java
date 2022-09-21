@@ -4,6 +4,7 @@ public class Sismos {
         Menu();
     }
     public static void Menu(){
+        double[][] matriz = llenarMatriz(crearMatriz(nDias()));
     Scanner menu = new Scanner(System.in);
     boolean salir = false;
     int opcion;
@@ -19,15 +20,15 @@ public class Sismos {
         opcion = menu.nextInt();
     switch (opcion){
         case 1:
-            mostrarMayor(  llenarMatriz(crearMatriz(nDias())));
+            mostrarMayor(matriz);
             System.out.println();
             break;
         case 2:
             System.out.println();
-            mostrarMatriz(llenarMatriz(crearMatriz(nDias())));
+            mayoresAcinco(matriz);
             break;
         case 3:
-            System.out.println("loquisimo");
+            escSismica(matriz);
             break;
         case 4:
             System.out.println("dou");
