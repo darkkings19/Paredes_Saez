@@ -19,16 +19,18 @@ public class Sismos {
         opcion = menu.nextInt();
     switch (opcion){
         case 1:
+            mostrarMayor(  llenarMatriz(crearMatriz(nDias())));
             System.out.println();
             break;
         case 2:
             System.out.println();
+            mostrarMatriz(llenarMatriz(crearMatriz(nDias())));
             break;
         case 3:
-            System.out.println();
+            System.out.println("loquisimo");
             break;
         case 4:
-            System.out.println();
+            System.out.println("dou");
             break;
         case 5:
             salir = true;
@@ -41,23 +43,36 @@ public class Sismos {
         public static double[][] crearMatriz(int n){
             System.out.println("Ingresa el numero de Dias");
             double matriz [][]= new double[n][24];
+            //
             return matriz;
         }
-        public static String encontraMayor(double matriz[][]){
-        String mayorPosicion= "0,0";
-        double numeroMayor =matriz[0][0];
+
+    public static void mostrarMayor(double matriz[][]) {
+        double[] mayorPosicion=new double[3];
+        double sismo=matriz[0][0];
         for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j<matriz[i].length; j++) {
-                if (matriz[i][j]>numeroMayor){
-                    numeroMayor = matriz[i][j];
-                    mayorPosicion = i + "," + j;
+            for (int j = 0; j < matriz[i].length; j++) {
+                if (matriz[i][j] > sismo) {
+                    sismo=matriz[i][j];
+                    mayorPosicion[0] = sismo;
+                    mayorPosicion[1] = i+1;
+                    mayorPosicion[2] = j+1;
+                }
+            }
+        }
+        System.out.println("El sismo mayor fue de "+mayorPosicion[0]+" El dia "+mayorPosicion[1]+" en la hora "+mayorPosicion[2]);
+    }
+    public static void mayoresAcinco(double matriz[][]){
+        int contador = 0;
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                if (matriz[i][j] > 5.4) {
+                    contador++;
+
                 }
             }
             
         }
-        return mayorPosicion;
-    }
-    public static void mayoresAlgo(){
-
+        System.out.println("los sismos mayores e iguales a 5.5: "+contador);
     }
 }
