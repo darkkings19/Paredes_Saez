@@ -43,14 +43,14 @@ public class Sismos {
             double matriz [][]= new double[n][24];
             return matriz;
         }
-        public static String encontraMayor{
+        public static String encontraMayor(double matriz[][]){
         String mayorPosicion= "0,0";
         double numeroMayor =matriz[0][0];
         for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j <matriz[x]; j++) {
-                if (matriz[x][y]>numeroMayor){
-                    numeroMayor = matriz[x][y];
-                    mayorPosicion = x + "," + y;
+            for (int j = 0; j<matriz[i].length; j++) {
+                if (matriz[i][j]>numeroMayor){
+                    numeroMayor = matriz[i][j];
+                    mayorPosicion = i + "," + j;
                 }
             }
             
